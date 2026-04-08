@@ -1,0 +1,34 @@
+# Fails PRs that add locale JSON at repo root (common Lokalise misconfiguration).
+# Correct layout: public/locales/<lang>/*.json — set Download directory prefix in Lokalise.
+name: Locale export paths
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  reject-root-locale-dump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ensure no root-level en/ or de/ locale trees
+        run: |
+          base="${{ github.event.pull_request.base.sha }}"
+          head="${{ github.event.pull_request.head.sha }}"
+          bad="$(git diff --name-only "$base" "$head" | grep -E '^(en|de)/' || true)"
+          if [ -n "$bad" ]; then
+            echo "::error::This PR adds locale files under /en or /de at the repo root. The app only loads public/locales/."
+            echo ""
+            echo "Fix in Lokalise → Download → File structure:"
+            echo "  - Multiple files per language"
+            echo "  - Directory prefix: public/locales/%LANG_ISO%"
+            echo "Then Preview and confirm paths like public/locales/de/common.json"
+            echo ""
+            echo "Offending paths:"
+            echo "$bad"
+            exit 1
+          fi
+          echo "OK: no root-level en/ or de/ in this PR diff."

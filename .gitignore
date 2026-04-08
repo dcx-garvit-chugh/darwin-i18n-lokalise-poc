@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Lokalise must export under public/locales/<lang>/ only (see README).
+# Root-level en/ or de/ folders are a misconfigured Download directory prefix.
+/en/
+/de/

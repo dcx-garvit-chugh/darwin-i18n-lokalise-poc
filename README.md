@@ -117,6 +117,12 @@ This app expects **two JSON files per locale**: `common.json` and `marketingStud
 
 After merge, `git pull` is enough; **`npm run dev`** will show new copy with no manual copying.
 
+### If Lokalise still opens PRs with `en/` or `de/` at the **repo root**
+
+That almost always means the **Download → directory prefix** is blank or wrong, or **One file per language** is collapsing everything next to the repo root. Use **Preview** on the Download page until every path starts with `public/locales/`.
+
+This repo also **ignores** `/en/` and `/de/` at root in `.gitignore` and runs a **GitHub Action** on pull requests that fails if those paths appear in the diff—so a bad export is obvious instead of silently merging.
+
 ### 5) Optional: auto-import when devs push English
 
 Configure a GitHub **webhook** to Lokalise **auto-pull** URL (described under “Auto-pull” in the [GitHub](https://docs.lokalise.com/en/articles/1684090-github) article) so updates to `public/locales/en/` flow into Lokalise without a manual “Pull now”.
