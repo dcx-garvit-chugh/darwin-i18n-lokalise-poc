@@ -9,6 +9,19 @@ Minimal **Vite + React** app that mirrors **`dcx-client-app`** i18n choices:
 
 Use this repo to exercise **GitHub ↔ Lokalise ↔ runtime** without touching the production client bundle.
 
+## Push to your private GitHub (no CLI required)
+
+1. On GitHub: **New repository** → name e.g. `darwin-i18n-lokalise-poc` → **Private** → create **without** README (this repo already has one).
+2. Locally:
+
+```bash
+cd darwin-i18n-lokalise-poc
+git remote add origin https://github.com/<YOUR_USER>/darwin-i18n-lokalise-poc.git
+git push -u origin main
+```
+
+With [GitHub CLI](https://cli.github.com/): `gh repo create darwin-i18n-lokalise-poc --private --source=. --push` from this directory (after `gh auth login`).
+
 ## Local run
 
 ```bash
