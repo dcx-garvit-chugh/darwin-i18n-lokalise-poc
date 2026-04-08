@@ -1,15 +1,39 @@
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { I18N_NAMESPACES } from './i18n.js';
 import './App.css';
 
 const REPO_URL = 'https://github.com/dcx-garvit-chugh/darwin-i18n-lokalise-poc';
 
-export default function App() {
-  const { t, i18n } = useTranslation(['common', 'marketingStudio']);
+function useLocaleMenu() {
+  const { i18n } = useTranslation(I18N_NAMESPACES);
 
-  const langs = [
-    { code: 'en', label: t('common:poc.langEn') },
-    { code: 'de', label: t('common:poc.langDe') },
-  ];
+  return useMemo(() => {
+    const raw = i18n.options.supportedLngs;
+    const codes = Array.isArray(raw)
+      ? raw.filter((c) => typeof c === 'string')
+      : ['en'];
+
+    const uiLang = (i18n.resolvedLanguage || 'en').split(/[-_]/)[0];
+    let displayNames;
+    try {
+      displayNames = new Intl.DisplayNames([uiLang], { type: 'language' });
+    } catch {
+      displayNames = new Intl.DisplayNames(['en'], { type: 'language' });
+    }
+
+    return codes.map((code) => ({
+      code,
+      label: displayNames.of(code) || code,
+    }));
+  }, [i18n.options.supportedLngs, i18n.resolvedLanguage]);
+}
+
+export default function App() {
+  const { t, i18n } = useTranslation(I18N_NAMESPACES);
+  const langs = useLocaleMenu();
+  const localeCount = langs.length;
+  const namespaceCount = I18N_NAMESPACES.length;
 
   const active = (code) => i18n.language?.startsWith(code);
 
@@ -35,6 +59,7 @@ export default function App() {
                 className={`lang-pill${active(code) ? ' lang-pill--active' : ''}`}
                 onClick={() => i18n.changeLanguage(code)}
                 aria-pressed={active(code)}
+                title={code}
               >
                 {label}
               </button>
@@ -58,11 +83,11 @@ export default function App() {
           <dl className="stats">
             <div className="stat">
               <dt>{t('common:poc.statLocales')}</dt>
-              <dd>{t('marketingStudio:pocStatVal2')}</dd>
+              <dd>{localeCount}</dd>
             </div>
             <div className="stat">
               <dt>{t('common:poc.statNamespaces')}</dt>
-              <dd>{t('marketingStudio:pocStatVal2')}</dd>
+              <dd>{namespaceCount}</dd>
             </div>
             <div className="stat">
               <dt>{t('common:poc.statKeys')}</dt>

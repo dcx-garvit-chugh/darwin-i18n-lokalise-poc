@@ -1,6 +1,6 @@
 import { StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
-import './i18n';
+import { initI18n } from './i18n.js';
 import './index.css';
 import App from './App.jsx';
 
@@ -20,10 +20,15 @@ const loadingFallback = (
   </div>
 );
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Suspense fallback={loadingFallback}>
-      <App />
-    </Suspense>
-  </StrictMode>,
-);
+async function bootstrap() {
+  await initI18n();
+  createRoot(document.getElementById('root')).render(
+    <StrictMode>
+      <Suspense fallback={loadingFallback}>
+        <App />
+      </Suspense>
+    </StrictMode>,
+  );
+}
+
+bootstrap();

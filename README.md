@@ -117,6 +117,17 @@ This app expects **two JSON files per locale**: `common.json` and `marketingStud
 
 After merge, `git pull` is enough; **`npm run dev`** will show new copy with no manual copying.
 
+### Dynamic languages (selector + i18n)
+
+The app does **not** hardcode locale codes.
+
+1. **`public/locales/<language>/common.json`** must exist for each locale (same as today). Lokalise exports `public/locales/fr/common.json`, `marketingStudio.json`, etc.
+2. On **`npm run dev`** and **`npm run build`**, Vite regenerates **`public/locales/languages.json`** from those folders (see `vite.config.js`). That file lists every locale the UI offers.
+3. The language switcher uses **`Intl.DisplayNames`** so labels (e.g. “French”, “français”) update without adding keys for each language.
+4. **Commit** updated `languages.json` when you add a language so GitHub reflects the same list without an extra local run (or run `npm run build` once after merging the Lokalise PR).
+
+If `languages.json` is missing, i18n falls back to `en` and `de`.
+
 ### If Lokalise still opens PRs with `en/` or `de/` at the **repo root**
 
 That almost always means the **Download → directory prefix** is blank or wrong, or **One file per language** is collapsing everything next to the repo root. Use **Preview** on the Download page until every path starts with `public/locales/`.
