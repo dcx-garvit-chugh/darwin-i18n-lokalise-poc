@@ -9,18 +9,38 @@ Minimal **Vite + React** app that mirrors **`dcx-client-app`** i18n choices:
 
 Use this repo to exercise **GitHub ↔ Lokalise ↔ runtime** without touching the production client bundle.
 
-## Push to your private GitHub (no CLI required)
+Target account (same pattern as [flypay-poc](https://github.com/dcx-garvit-chugh/flypay-poc)): [**github.com/dcx-garvit-chugh**](https://github.com/dcx-garvit-chugh).
 
-1. On GitHub: **New repository** → name e.g. `darwin-i18n-lokalise-poc` → **Private** → create **without** README (this repo already has one).
-2. Locally:
+## First-time push to GitHub (two minutes)
+
+The local clone in this workspace **already has** `origin` set to:
+
+`https://github.com/dcx-garvit-chugh/darwin-i18n-lokalise-poc.git`
+
+An automated push from this environment failed only because **that repository does not exist on GitHub yet** (same as creating `flypay-poc` the first time).
+
+1. While logged in as **dcx-garvit-chugh**, open:  
+   **[Create repository — name pre-filled](https://github.com/new?name=darwin-i18n-lokalise-poc)**  
+2. Set **Visibility** to **Private**.  
+3. Leave **Add a README** / **.gitignore** / **license** unchecked (this project already has commits).  
+4. Click **Create repository**.  
+5. On your Mac, run:
 
 ```bash
-cd darwin-i18n-lokalise-poc
-git remote add origin https://github.com/<YOUR_USER>/darwin-i18n-lokalise-poc.git
+cd /path/to/darwin-i18n-lokalise-poc
+./scripts/first-push.sh
+```
+
+Or only the push:
+
+```bash
 git push -u origin main
 ```
 
-With [GitHub CLI](https://cli.github.com/): `gh repo create darwin-i18n-lokalise-poc --private --source=. --push` from this directory (after `gh auth login`).
+After that, the repo will be at **https://github.com/dcx-garvit-chugh/darwin-i18n-lokalise-poc**.
+
+Optional: install [GitHub CLI](https://cli.github.com/), run `gh auth login`, then from this directory:  
+`gh repo create darwin-i18n-lokalise-poc --private --source=. --remote=origin --push`
 
 ## Local run
 
