@@ -1,56 +1,128 @@
 import { useTranslation } from 'react-i18next';
 import './App.css';
 
-const LANGS = [
-  { code: 'en', label: 'English' },
-  { code: 'de', label: 'Deutsch' },
-];
+const REPO_URL = 'https://github.com/dcx-garvit-chugh/darwin-i18n-lokalise-poc';
 
 export default function App() {
   const { t, i18n } = useTranslation(['common', 'marketingStudio']);
 
+  const langs = [
+    { code: 'en', label: t('common:poc.langEn') },
+    { code: 'de', label: t('common:poc.langDe') },
+  ];
+
+  const active = (code) => i18n.language?.startsWith(code);
+
   return (
-    <div className="poc">
-      <header className="poc-header">
-        <h1>{t('common:app.name')}</h1>
-        <p className="poc-sub">{t('marketingStudio:campaignConfigurator')}</p>
-        <div className="poc-lang">
-          {LANGS.map(({ code, label }) => (
-            <button
-              key={code}
-              type="button"
-              className={i18n.language?.startsWith(code) ? 'active' : ''}
-              onClick={() => i18n.changeLanguage(code)}
-            >
-              {label}
-            </button>
-          ))}
+    <div className="shell">
+      <div className="aurora" aria-hidden="true" />
+      <div className="grid-bg" aria-hidden="true" />
+
+      <header className="hero">
+        <span className="badge">{t('common:poc.badge')}</span>
+        <p className="product-name">{t('common:app.name')}</p>
+        <p className="kicker">{t('common:poc.heroKicker')}</p>
+        <h1 className="title">{t('common:poc.heroTitle')}</h1>
+        <p className="lede">{t('common:poc.heroLede')}</p>
+
+        <div className="lang-row">
+          <span className="lang-label">{t('common:poc.langLabel')}</span>
+          <div className="lang-pills" role="group" aria-label={t('common:poc.langLabel')}>
+            {langs.map(({ code, label }) => (
+              <button
+                key={code}
+                type="button"
+                className={`lang-pill${active(code) ? ' lang-pill--active' : ''}`}
+                onClick={() => i18n.changeLanguage(code)}
+                aria-pressed={active(code)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
         </div>
       </header>
 
-      <main className="poc-main">
-        <section>
-          <h2>{t('marketingStudio:productItems')}</h2>
-          <p>{t('marketingStudio:configureMarketingCampaignsRenewalJourneysEtc')}</p>
-          <ul className="poc-list">
+      <div className="bento">
+        <article className="card card--span-2 card--pipeline">
+          <h2 className="card__title">{t('common:poc.cardPipelineTitle')}</h2>
+          <p className="card__steps">{t('common:poc.cardPipelineSteps')}</p>
+          <p className="card__caption">{t('common:poc.cardPipelineCaption')}</p>
+          <div className="flow-dots" aria-hidden="true">
+            <span /><span /><span /><span />
+          </div>
+        </article>
+
+        <article className="card card--stats">
+          <h2 className="card__title">{t('common:poc.cardStatsTitle')}</h2>
+          <dl className="stats">
+            <div className="stat">
+              <dt>{t('common:poc.statLocales')}</dt>
+              <dd>{t('marketingStudio:pocStatVal2')}</dd>
+            </div>
+            <div className="stat">
+              <dt>{t('common:poc.statNamespaces')}</dt>
+              <dd>{t('marketingStudio:pocStatVal2')}</dd>
+            </div>
+            <div className="stat">
+              <dt>{t('common:poc.statKeys')}</dt>
+              <dd>{t('marketingStudio:pocStatVal12')}</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article className="card card--span-2 card--filters">
+          <div className="card__head">
+            <h2 className="card__title">{t('common:poc.cardFiltersTitle')}</h2>
+            <span className="mini-badge">{t('marketingStudio:pocSampleBadge')}</span>
+          </div>
+          <p className="card__hint">{t('common:poc.cardFiltersHint')}</p>
+          <ul className="filter-chips">
             <li>{t('marketingStudio:filterByItemId')}</li>
             <li>{t('marketingStudio:filterByName')}</li>
-            <li>{t('marketingStudio:itemNotAttachedInAnyBundle')}</li>
+            <li>{t('marketingStudio:filterByBrand')}</li>
           </ul>
-        </section>
+        </article>
 
-        <section>
-          <h2>{t('common:nav.home')}</h2>
-          <p>
-            <button type="button" className="poc-primary">
-              {t('common:actions.save')}
-            </button>{' '}
-            <button type="button" className="poc-secondary">
-              {t('common:actions.cancel')}
-            </button>
-          </p>
-        </section>
-      </main>
+        <article className="card card--error">
+          <h2 className="card__title">{t('common:poc.cardErrorTitle')}</h2>
+          <p className="card__hint">{t('common:poc.cardErrorHint')}</p>
+          <div className="error-plaque" role="status">
+            <span className="error-plaque__icon" aria-hidden="true">⚠</span>
+            <span className="error-plaque__text">
+              {t('marketingStudio:itemNotAttachedInAnyBundle')}
+            </span>
+          </div>
+        </article>
+
+        <article className="card card--actions card--span-2">
+          <div className="actions-inner">
+            <div>
+              <h2 className="card__title">{t('common:nav.home')}</h2>
+              <p className="card__hint actions-tagline">
+                {t('marketingStudio:configureMarketingCampaignsRenewalJourneysEtc')}
+              </p>
+            </div>
+            <div className="btn-row">
+              <a
+                className="btn btn--primary"
+                href={REPO_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {t('common:poc.ctaPrimary')}
+              </a>
+              <button type="button" className="btn btn--ghost">
+                {t('common:poc.ctaSecondary')}
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <footer className="foot">
+        <p>{t('common:poc.footerLine')}</p>
+      </footer>
     </div>
   );
 }

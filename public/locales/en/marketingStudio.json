@@ -4,5 +4,9 @@
   "configureMarketingCampaignsRenewalJourneysEtc": "Configure marketing campaigns, renewal journeys, etc.",
   "filterByItemId": "Filter By Item ID",
   "filterByName": "Filter By Name",
-  "itemNotAttachedInAnyBundle": "Item not attached in any bundle"
+  "filterByBrand": "Filter By Brand",
+  "itemNotAttachedInAnyBundle": "Item not attached in any bundle",
+  "pocSampleBadge": "Sample copy from marketingStudio.json",
+  "pocStatVal2": "2",
+  "pocStatVal12": "12+"
 }

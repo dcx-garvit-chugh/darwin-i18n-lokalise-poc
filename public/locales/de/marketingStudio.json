@@ -4,5 +4,9 @@
   "configureMarketingCampaignsRenewalJourneysEtc": "Konfigurieren Sie Marketingkampagnen, Erneuerungszeiträume usw.",
   "filterByItemId": "Nach Artikel-ID filtern",
   "filterByName": "Nach Name filtern",
-  "itemNotAttachedInAnyBundle": "Artikel ist keinem Bundle zugeordnet"
+  "filterByBrand": "Nach Marke filtern",
+  "itemNotAttachedInAnyBundle": "Artikel ist keinem Bundle zugeordnet",
+  "pocSampleBadge": "Beispiel aus marketingStudio.json",
+  "pocStatVal2": "2",
+  "pocStatVal12": "12+"
 }
