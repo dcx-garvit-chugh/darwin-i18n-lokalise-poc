@@ -1,35 +1,35 @@
 {
-  "app": {
-    "name": "Phrase Lab"
-  },
-  "nav": {
-    "home": "Startseite"
-  },
-  "actions": {
-    "save": "Übersetzung speichern",
-    "cancel": "Lieber nicht"
-  },
-  "poc": {
-    "badge": "POC · i18next + Lokalise-Spielwiese",
-    "heroKicker": "Text ausliefern wie jedes andere Feature.",
-    "heroTitle": "Eine Pipeline. Jede Sprache.",
-    "heroLede": "Gleiche JSON-Struktur wie dcx-client-app—hier testest du die Schleife GitHub → Lokalise → Runtime, bevor prod dran ist.",
-    "langLabel": "Sprache",
-    "langEn": "English",
-    "langDe": "Deutsch",
-    "cardPipelineTitle": "Mental Model",
-    "cardPipelineSteps": "Kampagne → Angebot → Bundle → Artikel",
-    "cardPipelineCaption": "Passt es auf eine Serviette, können es auch eure Übersetzerinnen. Passt es nicht, ist das Produkt noch nicht erklärt.",
-    "cardFiltersTitle": "Filter mit Meinung",
-    "cardFiltersHint": "Jede Zeile unten ist ein echter Key. JSON editieren, Lokalise ziehen, Seite neu laden—und das UI folgt.",
-    "cardErrorTitle": "Wenn die API Drama macht",
-    "cardErrorHint": "Konfigfehler sollen in jeder Sprache menschlich klingen—nicht wie kalte Überbleibsel aus einer anderen Zeit.",
-    "cardStatsTitle": "In dieser Demo stecken",
-    "statLocales": "Locales",
-    "statNamespaces": "Namespaces",
-    "statKeys": "Sichtbare String-Keys",
-    "ctaPrimary": "GitHub-Repo öffnen",
-    "ctaSecondary": "Tu so, als wäre Lokalise schon synchron",
-    "footerLine": "Darwin CX · Lieber hier in Staging scheitern als in der Sprint-Demo."
-  }
+    "app": {
+        "name": ""
+    },
+    "nav": {
+        "home": ""
+    },
+    "actions": {
+        "save": "",
+        "cancel": ""
+    },
+    "poc": {
+        "badge": "",
+        "heroKicker": "",
+        "heroTitle": "",
+        "heroLede": "",
+        "langLabel": "",
+        "langEn": "",
+        "langDe": "",
+        "cardPipelineTitle": "",
+        "cardPipelineSteps": "",
+        "cardPipelineCaption": "",
+        "cardFiltersTitle": "",
+        "cardFiltersHint": "",
+        "cardErrorTitle": "",
+        "cardErrorHint": "",
+        "cardStatsTitle": "",
+        "statLocales": "",
+        "statNamespaces": "",
+        "statKeys": "",
+        "ctaPrimary": "",
+        "ctaSecondary": "",
+        "footerLine": ""
+    }
 }
