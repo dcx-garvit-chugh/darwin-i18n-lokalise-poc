@@ -64,21 +64,70 @@ npm run build && npm run preview
 
 Each file is one **i18next namespace** (filename = namespace, e.g. `marketingStudio.json`).
 
-## End-to-end: Lokalise + GitHub
+The Vite app serves these at `/locales/en/...` and `/locales/de/...`. **Only this tree should appear in GitHub PRs from Lokalise** — not `en/` or `de/` at the repository root.
 
-1. Create a **Lokalise** project (or use an existing QA project).
-2. Add **GitHub** integration in Lokalise and authorize this **private** repository.
-3. Configure a **file upload/download** template that matches this repo, for example:
-   - **Repository path** (download / upload): `public/locales/%LANG_ISO%/%FILE_NAME%.json`
-   - Map **locale** `en` → `en`, `de` → `de` (adjust if you use `de_DE` etc.).
-   - One **bundle per namespace**: `common.json`, `marketingStudio.json`, …  
-     (or one Lokalise “file” per namespace; match `%FILE_NAME%` to the namespace.)
-4. **Pull** source copy from `en` into Lokalise, translate, **push** `de` (and others) back to the branch you choose (e.g. `main` or `lokalise-translations`).
-5. Merge the PR / branch in GitHub; redeploy or run locally — the app loads the updated JSON automatically.
+---
 
-Exact Lokalise UI labels vary; use their docs for [GitHub integration](https://docs.lokalise.com/) and file path placeholders.
+## Lokalise dashboard: fully automated PRs into `public/locales/`
 
-Optional: **Lokalise CLI** (`lokalise2` ) in CI for pull/push if you prefer pipelines over the hosted sync.
+There is no “magic path” in the repo: GitHub PRs use whatever you configure on Lokalise’s **[Download](https://docs.lokalise.com/en/articles/3150682-downloading-translation-files)** page (file structure + directory prefix) and the **[GitHub](https://docs.lokalise.com/en/articles/1684090-github)** app trigger. Follow this once per project (save settings; Lokalise remembers them for the next export).
+
+### 1) GitHub app — **Pull** (import into Lokalise)
+
+Per [GitHub integration](https://docs.lokalise.com/en/articles/1684090-github): you normally pull **base-language** files only.
+
+- Pick **only** files under **`public/locales/en/`**, e.g.  
+  `public/locales/en/common.json`  
+  `public/locales/en/marketingStudio.json`
+- For each file, set the language dropdown to **English** (`en`).
+
+Do **not** point the import at stray `en/` or `de/` folders at repo root (those should not exist on `main`).
+
+### 2) Project languages
+
+- **English** = base (source).
+- **German** (`de`) = translation target (add in project **Languages** if missing).
+
+### 3) Filenames inside Lokalise (namespaces)
+
+This app expects **two JSON files per locale**: `common.json` and `marketingStudio.json`.
+
+- Open the **Files** widget and confirm keys are assigned to filenames that will export as those two names (see [Filenames](https://docs.lokalise.com/en/articles/2281317-filenames)).
+- Keys must be on the **Web** platform so JSON export includes them.
+
+### 4) **Download** page — this fixes where the GitHub PR writes files
+
+1. **Download** in the main menu.
+2. **File format**: **JSON** (Web).
+3. **Languages**: include **English** and **German** (or every locale you ship).
+4. **File structure**: choose **Multiple files per language** so each namespace stays a separate file (not one giant JSON per locale). Same idea as Lokalise’s CLI `--original-filenames=true` ([Filenames](https://docs.lokalise.com/en/articles/2281317-filenames)).
+5. **Directory prefix** (sometimes labeled alongside file structure): set exactly:
+
+   ```text
+   public/locales/%LANG_ISO%
+   ```
+
+   That matches the “directory prefix + `%LANG_ISO%`” pattern described for multi-file exports (see Example 3 in [Filenames](https://docs.lokalise.com/en/articles/2281317-filenames)).
+
+6. Use **Preview**: you should see paths like  
+   `public/locales/en/common.json`, `public/locales/en/marketingStudio.json`,  
+   `public/locales/de/common.json`, `public/locales/de/marketingStudio.json`.  
+   If you only see `en/common.json` at the repo root, the prefix is wrong — fix step 5 before triggering GitHub.
+7. Under **App triggers**, enable **GitHub**, then **Build only** (or build + download) to open the PR.
+
+After merge, `git pull` is enough; **`npm run dev`** will show new copy with no manual copying.
+
+### 5) Optional: auto-import when devs push English
+
+Configure a GitHub **webhook** to Lokalise **auto-pull** URL (described under “Auto-pull” in the [GitHub](https://docs.lokalise.com/en/articles/1684090-github) article) so updates to `public/locales/en/` flow into Lokalise without a manual “Pull now”.
+
+---
+
+## End-to-end checklist (for demos)
+
+1. Dev changes **`public/locales/en/*.json`** → push to GitHub → (optional) webhook → Lokalise pulls.
+2. Translator works in Lokalise → **Download** with settings above → **GitHub** trigger → PR.
+3. Merge PR → **`git pull`** → run app → German updates appear automatically.
 
 ## Parity with `dcx-client-app`
 
