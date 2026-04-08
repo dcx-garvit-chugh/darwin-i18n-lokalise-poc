@@ -1,49 +1,71 @@
 {
-  "customReportsInProcess": "Custom Reports - In Process",
-  "f300AccountsReceivablePaidToPublisherTransactions": "F300 - Accounts receivable - paid to publisher transactions",
-  "backToDashboard": "Back to Dashboard",
-  "accessRestrictedOrTheFeatureHasNotYetLaunched": "Access restricted or the feature has not yet launched",
-  "app": {
-    "name": "Darwin Customer Experience",
-    "staging": "STAGING"
-  },
-  "nav": {
-    "dashboard": "Dashboard",
-    "home": "Home"
-  },
-  "errors": {
-    "403": {
-      "title": "403 Forbidden",
-      "message": "Sorry, you do not have permission to access this page.",
-      "redirect": "Click <1>here</1> to be redirected to the login page."
+    "app": {
+        "name": "Phrase Lab",
+        "staging": "STAGING"
     },
-    "404": {
-      "title": "404",
-      "subtitle": "Oops!",
-      "message": "The page you are looking for was not found."
+    "nav": {
+        "home": "Home"
     },
-    "500": {
-      "title": "500",
-      "subtitle": "Houston, we have a problem!",
-      "message": "The page you are looking for is temporarily unavailable."
+    "actions": {
+        "save": "Save translation",
+        "cancel": "Scrap it",
+        "login": "Login",
+        "logout": "Log Out",
+        "signUp": "Sign Up",
+        "register": "Register",
+        "delete": "Delete",
+        "edit": "Edit",
+        "search": "Search",
+        "submit": "Submit",
+        "confirm": "Confirm",
+        "back": "Back",
+        "next": "Next",
+        "close": "Close",
+        "loading": "Loading..."
     },
-    "sessionExpired": "Session Expired - please re-login"
-  },
-  "actions": {
-    "login": "Login",
-    "logout": "Log Out",
-    "signUp": "Sign Up",
-    "register": "Register",
-    "save": "Save",
-    "cancel": "Cancel",
-    "delete": "Delete",
-    "edit": "Edit",
-    "search": "Search",
-    "submit": "Submit",
-    "confirm": "Confirm",
-    "back": "Back",
-    "next": "Next",
-    "close": "Close",
-    "loading": "Loading..."
-  }
+    "poc": {
+        "badge": "POC · i18next + Lokalise playground",
+        "heroKicker": "Ship copy like you ship features.",
+        "heroTitle": "One pipeline. Every language.",
+        "heroLede": "Same JSON shape as dcx-client-app—prove the GitHub → Lokalise → runtime loop here before you touch prod.",
+        "langLabel": "Locale",
+        "langEn": "English",
+        "langDe": "Deutsch",
+        "cardPipelineTitle": "Mental model",
+        "cardPipelineSteps": "Campaign → Offer → Bundle → Item",
+        "cardPipelineCaption": "If it fits on a napkin, your translators can reason about it. If it does not, fix the product first.",
+        "cardFiltersTitle": "Filters with opinions",
+        "cardFiltersHint": "Every line below is a real key. Edit JSON, let Lokalise pull, refresh—watch the DOM obey.",
+        "cardErrorTitle": "When the API gets dramatic",
+        "cardErrorHint": "Config errors should sound human in every language—not like cold leftovers from another era.",
+        "cardStatsTitle": "This demo ships with",
+        "statLocales": "Locales",
+        "statNamespaces": "Namespaces",
+        "statKeys": "String keys in view",
+        "ctaPrimary": "Open GitHub repo",
+        "ctaSecondary": "Pretend I synced Lokalise",
+        "footerLine": "Darwin CX · Built to fail safely in staging, not in your sprint demo."
+    },
+    "customReportsInProcess": "Custom Reports - In Process",
+    "f300AccountsReceivablePaidToPublisherTransactions": "F300 - Accounts receivable - paid to publisher transactions",
+    "backToDashboard": "Back to Dashboard",
+    "accessRestrictedOrTheFeatureHasNotYetLaunched": "Access restricted or the feature has not yet launched",
+    "errors": {
+        "403": {
+            "title": "403 Forbidden",
+            "message": "Sorry, you do not have permission to access this page.",
+            "redirect": "Click <1>here<\/1> to be redirected to the login page."
+        },
+        "404": {
+            "title": "404",
+            "subtitle": "Oops!",
+            "message": "The page you are looking for was not found."
+        },
+        "500": {
+            "title": "500",
+            "subtitle": "Houston, we have a problem!",
+            "message": "The page you are looking for is temporarily unavailable."
+        },
+        "sessionExpired": "Session Expired - please re-login"
+    }
 }

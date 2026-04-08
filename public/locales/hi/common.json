@@ -1,0 +1,71 @@
+{
+    "app": {
+        "name": "वाक्यांश प्रयोगशाला",
+        "staging": ""
+    },
+    "nav": {
+        "home": "घर"
+    },
+    "actions": {
+        "save": "अनुवाद सहेजें",
+        "cancel": "इसे फेंक दें",
+        "login": "",
+        "logout": "",
+        "signUp": "",
+        "register": "",
+        "delete": "",
+        "edit": "",
+        "search": "",
+        "submit": "",
+        "confirm": "",
+        "back": "",
+        "next": "",
+        "close": "",
+        "loading": ""
+    },
+    "poc": {
+        "badge": "पीओसी · i18next + लोकलाइज़ प्लेग्राउंड",
+        "heroKicker": "कंटेंट की तरह ही कंटेंट भी भेजें।",
+        "heroTitle": "एक ही पाइपलाइन। हर भाषा।",
+        "heroLede": "dcx-client-app के समान JSON आकार - उत्पादन में बदलाव करने से पहले GitHub → Lokalise → रनटाइम लूप को यहाँ सिद्ध करें।",
+        "langLabel": "स्थान",
+        "langEn": "अंग्रेज़ी",
+        "langDe": "deutsch",
+        "cardPipelineTitle": "मानसिक मॉडल",
+        "cardPipelineSteps": "अभियान → ऑफ़र → बंडल → आइटम",
+        "cardPipelineCaption": "अगर यह नैपकिन पर लिखा जा सकता है, तो आपके अनुवादक इस पर विचार कर सकते हैं। अगर नहीं, तो पहले उत्पाद को ठीक करें।",
+        "cardFiltersTitle": "राय वाले फ़िल्टर",
+        "cardFiltersHint": "नीचे दी गई प्रत्येक पंक्ति एक वास्तविक कुंजी है। JSON संपादित करें, Lokalise को डेटा खींचने दें, रीफ़्रेश करें—देखें कि DOM कैसे प्रतिक्रिया करता है।",
+        "cardErrorTitle": "जब एपीआई नाटकीय हो जाता है",
+        "cardErrorHint": "कॉन्फ़िगरेशन त्रुटियाँ हर भाषा में मानवीय लगनी चाहिएं—न कि किसी दूसरे युग के बासी अवशेषों की तरह।",
+        "cardStatsTitle": "यह डेमो इसके साथ आता है",
+        "statLocales": "स्थानों",
+        "statNamespaces": "नेमस्पेस",
+        "statKeys": "दृश्य में स्ट्रिंग कुंजियाँ",
+        "ctaPrimary": "GitHub रेपो खोलें",
+        "ctaSecondary": "मान लीजिए मैंने लोकलाइज़ को सिंक कर लिया है।",
+        "footerLine": "डार्विन CX · इसे स्प्रिंट डेमो में नहीं, बल्कि स्टेजिंग में सुरक्षित रूप से विफल होने के लिए बनाया गया है।"
+    },
+    "customReportsInProcess": "",
+    "f300AccountsReceivablePaidToPublisherTransactions": "",
+    "backToDashboard": "",
+    "accessRestrictedOrTheFeatureHasNotYetLaunched": "",
+    "errors": {
+        "403": {
+            "title": "",
+            "message": "",
+            "redirect": ""
+        },
+        "404": {
+            "title": "",
+            "subtitle": "",
+            "message": ""
+        },
+        "500": {
+            "title": "",
+            "subtitle": "",
+            "message": ""
+        },
+        "sessionExpired": ""
+    }
+}
