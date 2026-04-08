@@ -1,35 +1,35 @@
 {
     "app": {
-        "name": ""
+        "name": "Phrasen-Labor"
     },
     "nav": {
-        "home": ""
+        "home": "Startseite"
     },
     "actions": {
-        "save": "",
-        "cancel": ""
+        "save": "Übersetzung speichern",
+        "cancel": "Verwerfen Sie es"
     },
     "poc": {
-        "badge": "",
-        "heroKicker": "",
-        "heroTitle": "",
-        "heroLede": "",
-        "langLabel": "",
-        "langEn": "",
-        "langDe": "",
-        "cardPipelineTitle": "",
-        "cardPipelineSteps": "",
-        "cardPipelineCaption": "",
-        "cardFiltersTitle": "",
-        "cardFiltersHint": "",
-        "cardErrorTitle": "",
-        "cardErrorHint": "",
-        "cardStatsTitle": "",
-        "statLocales": "",
-        "statNamespaces": "",
-        "statKeys": "",
-        "ctaPrimary": "",
-        "ctaSecondary": "",
-        "footerLine": ""
+        "badge": "POC - i18next + Lokalise Spielplatz",
+        "heroKicker": "Versenden Sie Kopien so wie Sie Funktionen versenden.",
+        "heroTitle": "Eine Pipeline. Jede Sprache.",
+        "heroLede": "Gleiche JSON-Form wie dcx-client-app-prove die GitHub → Lokalise → Laufzeitschleife hier, bevor Sie prod berühren.",
+        "langLabel": "Schauplatz",
+        "langEn": "Englisch",
+        "langDe": "Deutsch",
+        "cardPipelineTitle": "Mentales Modell",
+        "cardPipelineSteps": "Kampagne → Angebot → Bündel → Artikel",
+        "cardPipelineCaption": "Wenn es auf eine Serviette passt, können Ihre Übersetzer darüber nachdenken. Wenn nicht, müssen Sie zuerst das Produkt reparieren.",
+        "cardFiltersTitle": "Filter mit Meinungen",
+        "cardFiltersHint": "Jede Zeile unten ist ein echter Schlüssel. Bearbeiten Sie JSON, lassen Sie Lokalise ziehen, aktualisieren Sie und sehen Sie zu, wie das DOM gehorcht.",
+        "cardErrorTitle": "Wenn die API dramatisch wird",
+        "cardErrorHint": "Konfigurationsfehler sollten in jeder Sprache menschlich klingen - nicht wie kalte Überbleibsel aus einer anderen Zeit.",
+        "cardStatsTitle": "Diese Demo wird geliefert mit",
+        "statLocales": "Lokalitäten",
+        "statNamespaces": "Namensräume",
+        "statKeys": "String-Tasten in der Ansicht",
+        "ctaPrimary": "GitHub Repo öffnen",
+        "ctaSecondary": "So tun, als hätte ich Lokalise synchronisiert",
+        "footerLine": "Darwin CX - Entwickelt, um sicher im Staging zu versagen, nicht in Ihrer Sprint-Demo."
     }
 }
