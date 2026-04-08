@@ -1,49 +1,71 @@
 {
-  "customReportsInProcess": "Benutzerdefinierte Berichte – In Bearbeitung",
-  "f300AccountsReceivablePaidToPublisherTransactions": "F300 - Debitorenbuchhaltung - Zahlungen an den Verlag",
-  "backToDashboard": "Zurück zum Dashboard",
-  "accessRestrictedOrTheFeatureHasNotYetLaunched": "Der Zugriff ist eingeschränkt oder die Funktion ist noch nicht gestartet",
-  "app": {
-    "name": "Darwin Customer Experience",
-    "staging": "STAGING"
-  },
-  "nav": {
-    "dashboard": "Dashboard",
-    "home": "Startseite"
-  },
-  "errors": {
-    "403": {
-      "title": "403 Verboten",
-      "message": "Sie haben leider keine Berechtigung, auf diese Seite zuzugreifen.",
-      "redirect": "Klicken Sie <1>hier</1>, um zur Anmeldeseite weitergeleitet zu werden."
+    "app": {
+        "name": "Phrasen-Labor",
+        "staging": "STAGING"
     },
-    "404": {
-      "title": "404",
-      "subtitle": "Hoppla!",
-      "message": "Die gesuchte Seite wurde nicht gefunden."
+    "nav": {
+        "home": "Startseite"
     },
-    "500": {
-      "title": "500",
-      "subtitle": "Houston, wir haben ein Problem!",
-      "message": "Die gesuchte Seite ist vorübergehend nicht verfügbar."
+    "actions": {
+        "save": "Übersetzung speichern",
+        "cancel": "Verwerfen Sie es",
+        "login": "Anmelden",
+        "logout": "Abmelden",
+        "signUp": "Registrieren",
+        "register": "Registrieren",
+        "delete": "Löschen",
+        "edit": "Bearbeiten",
+        "search": "Suchen",
+        "submit": "Absenden",
+        "confirm": "Bestätigen",
+        "back": "Zurück",
+        "next": "Weiter",
+        "close": "Schließen",
+        "loading": "Wird geladen..."
     },
-    "sessionExpired": "Sitzung abgelaufen – bitte erneut anmelden"
-  },
-  "actions": {
-    "login": "Anmelden",
-    "logout": "Abmelden",
-    "signUp": "Registrieren",
-    "register": "Registrieren",
-    "save": "Speichern",
-    "cancel": "Abbrechen",
-    "delete": "Löschen",
-    "edit": "Bearbeiten",
-    "search": "Suchen",
-    "submit": "Absenden",
-    "confirm": "Bestätigen",
-    "back": "Zurück",
-    "next": "Weiter",
-    "close": "Schließen",
-    "loading": "Laden..."
-  }
+    "poc": {
+        "badge": "POC - i18next + Lokalise Spielplatz",
+        "heroKicker": "Versenden Sie Kopien so wie Sie Funktionen versenden.",
+        "heroTitle": "Eine Pipeline. Jede Sprache.",
+        "heroLede": "Gleiche JSON-Form wie dcx-client-app-prove die GitHub → Lokalise → Laufzeitschleife hier, bevor Sie prod berühren.",
+        "langLabel": "Schauplatz",
+        "langEn": "Englisch",
+        "langDe": "Deutsch",
+        "cardPipelineTitle": "Mentales Modell",
+        "cardPipelineSteps": "Kampagne → Angebot → Bündel → Artikel",
+        "cardPipelineCaption": "Wenn es auf eine Serviette passt, können Ihre Übersetzer darüber nachdenken. Wenn nicht, müssen Sie zuerst das Produkt reparieren.",
+        "cardFiltersTitle": "Filter mit Meinungen",
+        "cardFiltersHint": "Jede Zeile unten ist ein echter Schlüssel. Bearbeiten Sie JSON, lassen Sie Lokalise ziehen, aktualisieren Sie und sehen Sie zu, wie das DOM gehorcht.",
+        "cardErrorTitle": "Wenn die API dramatisch wird",
+        "cardErrorHint": "Konfigurationsfehler sollten in jeder Sprache menschlich klingen - nicht wie kalte Überbleibsel aus einer anderen Zeit.",
+        "cardStatsTitle": "Diese Demo wird geliefert mit",
+        "statLocales": "Lokalitäten",
+        "statNamespaces": "Namensräume",
+        "statKeys": "String-Tasten in der Ansicht",
+        "ctaPrimary": "GitHub Repo öffnen",
+        "ctaSecondary": "So tun, als hätte ich Lokalise synchronisiert",
+        "footerLine": "Darwin CX - Entwickelt, um sicher im Staging zu versagen, nicht in Ihrer Sprint-Demo."
+    },
+    "customReportsInProcess": "Benutzerdefinierte Berichte – In Bearbeitung",
+    "f300AccountsReceivablePaidToPublisherTransactions": "F300 - Debitorenbuchhaltung - an Verlag gezahlte Transaktionen",
+    "backToDashboard": "Zurück zum Dashboard",
+    "accessRestrictedOrTheFeatureHasNotYetLaunched": "Zugriff eingeschränkt oder die Funktion wurde noch nicht gestartet",
+    "errors": {
+        "403": {
+            "title": "403 Verboten",
+            "message": "Sie haben leider keine Berechtigung, auf diese Seite zuzugreifen.",
+            "redirect": "Klicken Sie <1>hier<\/1>, um zur Anmeldeseite weitergeleitet zu werden."
+        },
+        "404": {
+            "title": "404",
+            "subtitle": "Ups!",
+            "message": "Die Seite, nach der Sie suchen, wurde nicht gefunden."
+        },
+        "500": {
+            "title": "500",
+            "subtitle": "Houston, wir haben ein Problem!",
+            "message": "Die Seite, nach der Sie suchen, ist vorübergehend nicht verfügbar."
+        },
+        "sessionExpired": "Sitzung abgelaufen – bitte melden Sie sich erneut an"
+    }
 }
