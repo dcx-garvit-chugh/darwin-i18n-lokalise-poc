@@ -1,0 +1,72 @@
+{
+    "customReportsInProcess": "",
+    "f300AccountsReceivablePaidToPublisherTransactions": "",
+    "backToDashboard": "",
+    "accessRestrictedOrTheFeatureHasNotYetLaunched": "",
+    "app": {
+        "name": "",
+        "staging": ""
+    },
+    "nav": {
+        "dashboard": "",
+        "home": ""
+    },
+    "errors": {
+        "403": {
+            "title": "",
+            "message": "",
+            "redirect": ""
+        },
+        "404": {
+            "title": "",
+            "subtitle": "",
+            "message": ""
+        },
+        "500": {
+            "title": "",
+            "subtitle": "",
+            "message": ""
+        },
+        "sessionExpired": ""
+    },
+    "actions": {
+        "login": "",
+        "logout": "",
+        "signUp": "",
+        "register": "",
+        "save": "",
+        "cancel": "",
+        "delete": "",
+        "edit": "",
+        "search": "",
+        "submit": "",
+        "confirm": "",
+        "back": "",
+        "next": "",
+        "close": "",
+        "loading": ""
+    },
+    "poc": {
+        "badge": "",
+        "heroKicker": "",
+        "heroTitle": "",
+        "heroLede": "",
+        "langLabel": "",
+        "langEn": "",
+        "langDe": "",
+        "cardPipelineTitle": "",
+        "cardPipelineSteps": "",
+        "cardPipelineCaption": "",
+        "cardFiltersTitle": "",
+        "cardFiltersHint": "",
+        "cardErrorTitle": "",
+        "cardErrorHint": "",
+        "cardStatsTitle": "",
+        "statLocales": "",
+        "statNamespaces": "",
+        "statKeys": "",
+        "ctaPrimary": "",
+        "ctaSecondary": "",
+        "footerLine": ""
+    }
+}
