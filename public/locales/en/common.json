@@ -1,0 +1,12 @@
+{
+  "app": {
+    "name": "Darwin i18n + Lokalise POC"
+  },
+  "nav": {
+    "home": "Home"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel"
+  }
+}

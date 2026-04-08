@@ -1,0 +1,12 @@
+{
+  "app": {
+    "name": "POC: Darwin i18n mit Lokalise"
+  },
+  "nav": {
+    "home": "Startseite"
+  },
+  "actions": {
+    "save": "Speichern",
+    "cancel": "Abbrechen"
+  }
+}

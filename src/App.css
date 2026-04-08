@@ -1,0 +1,81 @@
+.poc {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #1a1a2e;
+  line-height: 1.5;
+}
+
+.poc-header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+}
+
+.poc-sub {
+  margin: 0 0 1rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.poc-lang {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.poc-lang button {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.poc-lang button.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  font-weight: 600;
+}
+
+.poc-main {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.poc-main h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.poc-main section p {
+  margin: 0 0 0.75rem;
+  color: #444;
+}
+
+.poc-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.poc-primary,
+.poc-secondary {
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.poc-primary {
+  border: none;
+  background: #2563eb;
+  color: #fff;
+}
+
+.poc-secondary {
+  border: 1px solid #ccc;
+  background: #fff;
+}
