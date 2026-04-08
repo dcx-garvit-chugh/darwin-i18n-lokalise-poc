@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "sync:locales": "node scripts/sync-locales-from-client.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -15,7 +16,8 @@
     "i18next-http-backend": "^3.0.4",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-i18next": "^15.7.4"
+    "react-i18next": "^15.7.4",
+    "react-router-dom": "^6.30.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

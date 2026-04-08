@@ -1,0 +1,18 @@
+{
+  "productionStreamDarwinCx": "Production Stream >< Darwin CX",
+  "renewalAnalysisDarwinCx": "Renewal Analysis >< Darwin CX",
+  "accountDeduplicationDarwinCx": "Account Deduplication >< Darwin CX",
+  "customerCareDarwinCx": "Customer Care >< Darwin CX",
+  "reportingEvolvedDarwinCx": "Reporting Evolved >< Darwin CX",
+  "reportingDarwinCx": "Reporting >< Darwin CX",
+  "dashboardDarwinCx": "Dashboard >< Darwin CX",
+  "settingDarwinCx": "Setting >< Darwin CX",
+  "reportingEvolvedPersonasDarwinCx": "Reporting Evolved Personas >< Darwin CX",
+  "campaignConfiguratorDarwinCx": "Campaign Configurator >< Darwin CX",
+  "marketingStudioDarwinCx": "Marketing Studio >< Darwin CX",
+  "callTranscriptDarwinCx": "Call Transcript >< Darwin CX",
+  "billingDarwinCx": "Billing >< Darwin CX",
+  "mediaLibraryDarwinCx": "Media Library >< Darwin CX",
+  "darwinCx": "Darwin CX",
+  "loginDarwinCx": "Login >< Darwin CX"
+}

@@ -412,3 +412,225 @@
   color: var(--muted);
   font-style: italic;
 }
+
+.top-nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.top-nav__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.15rem;
+}
+
+.top-nav__link {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.top-nav__link:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.top-nav__link--active {
+  color: var(--text);
+  background: var(--accent-soft);
+  border: 1px solid rgba(255, 92, 61, 0.2);
+}
+
+.top-nav__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
+}
+
+.top-nav__ns {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.top-nav__repo {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.top-nav__repo:hover {
+  text-decoration: underline;
+}
+
+.lang-pills--compact {
+  padding: 2px;
+}
+
+.lang-pills--compact .lang-pill {
+  padding: 0.32rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.page-outlet {
+  position: relative;
+  z-index: 1;
+}
+
+.page-demo {
+  padding-bottom: 1rem;
+}
+
+.page-demo__head {
+  margin-bottom: 1.5rem;
+}
+
+.page-demo__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.45rem, 3.5vw, 2rem);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+  background: linear-gradient(120deg, #fff 10%, #c8c4bc 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.page-demo__lede {
+  margin: 0;
+  max-width: 40rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.page-demo__note {
+  margin: 1.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.demo-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+}
+
+.demo-grid--reporting {
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+}
+
+.demo-tile__label {
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted) !important;
+}
+
+.demo-tile__value {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.demo-list {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+}
+
+.demo-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+}
+
+.demo-list li:last-child {
+  border-bottom: none;
+}
+
+.demo-list__key {
+  font-family: ui-monospace, monospace;
+  font-size: 0.78rem;
+  color: var(--teal);
+}
+
+.demo-list__val {
+  color: #d8d4cc;
+  text-align: right;
+}
+
+.demo-split {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .demo-split {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.demo-fake-input {
+  margin-top: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.demo-form {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.demo-form__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.demo-form__input {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--text);
+}
+
+.card--form-demo .card__title {
+  margin-bottom: 0.25rem;
+}

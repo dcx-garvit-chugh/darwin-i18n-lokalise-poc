@@ -3,7 +3,18 @@ import { initReactI18next } from 'react-i18next';
 import HttpBackend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-export const I18N_NAMESPACES = ['common', 'marketingStudio'];
+/** Match dcx-client-app plus `poc` for Phrase Lab chrome (POC-only). */
+export const I18N_NAMESPACES = [
+  'poc',
+  'common',
+  'admin',
+  'auth',
+  'customerCare',
+  'dashboard',
+  'marketingStudio',
+  'pageTitle',
+  'reporting',
+];
 
 const FALLBACK_LOCALES = ['en', 'de'];
 

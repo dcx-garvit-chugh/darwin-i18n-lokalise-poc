@@ -5,7 +5,8 @@ Minimal **Vite + React** app that mirrors **`dcx-client-app`** i18n choices:
 - **`i18next`** + **`react-i18next`**
 - **`i18next-http-backend`** loading JSON from **`/locales/{{lng}}/{{ns}}.json`**
 - **`i18next-browser-languagedetector`** (`localStorage` key `i18nextLng`, same as prod)
-- Namespaces aligned with the main app (`common`, `marketingStudio`; add more anytime)
+- Namespaces match the production client **plus `poc`** (Phrase Lab chrome only; not shipped in `dcx-client-app`): `poc`, `common`, `admin`, `auth`, `customerCare`, `dashboard`, `marketingStudio`, `pageTitle`, `reporting`
+- **Hybrid locale sync**: `npm run sync:locales` copies full JSON from `../dcx-client-app/public/locales/` for most namespaces and writes **reduced** `marketingStudio` / `customerCare` files from allowlists under `scripts/`
 
 Use this repo to exercise **GitHub ↔ Lokalise ↔ runtime** without touching the production client bundle.
 
@@ -61,10 +62,38 @@ npm run build && npm run preview
 |------|------|
 | `public/locales/en/*.json` | English sources |
 | `public/locales/de/*.json` | German targets |
+| `public/locales/languages.json` | Generated list of locale codes (folders that contain `common.json`) — commit after adding a language |
 
-Each file is one **i18next namespace** (filename = namespace, e.g. `marketingStudio.json`).
+Each **JSON file** under a language folder is one **i18next namespace** (filename = namespace, e.g. `marketingStudio.json`).
+
+**Files per language** (mirror this set in Lokalise *multiple files per language*):
+
+- `admin.json`
+- `auth.json`
+- `common.json`
+- `customerCare.json` (subset in repo; full file lives in `dcx-client-app`; re-run sync to refresh)
+- `dashboard.json`
+- `marketingStudio.json` (subset; same as above)
+- `pageTitle.json`
+- `poc.json` (**POC-only** — not copied from `dcx-client-app`; edit here or in Lokalise if you include it in the project)
+- `reporting.json`
 
 The Vite app serves these at `/locales/en/...` and `/locales/de/...`. **Only this tree should appear in GitHub PRs from Lokalise** — not `en/` or `de/` at the repository root.
+
+### Refreshing copy from Darwin (`dcx-client-app`)
+
+From this repo root (`darwin-i18n-lokalise-poc`), with **`dcx-client-app`** as a sibling directory:
+
+```bash
+npm run sync:locales
+```
+
+Then run **`npm run dev`** or **`npm run build`** once so `languages.json` updates if you add new locale folders later.
+
+Allowlists for large namespaces:
+
+- `scripts/hybrid-keys-marketingStudio.json`
+- `scripts/hybrid-keys-customerCare.json`
 
 ---
 
@@ -90,10 +119,11 @@ Do **not** point the import at stray `en/` or `de/` folders at repo root (those 
 
 ### 3) Filenames inside Lokalise (namespaces)
 
-This app expects **two JSON files per locale**: `common.json` and `marketingStudio.json`.
+This app expects **the JSON files listed above** for each locale (same set for `en` and `de`).
 
-- Open the **Files** widget and confirm keys are assigned to filenames that will export as those two names (see [Filenames](https://docs.lokalise.com/en/articles/2281317-filenames)).
+- Open the **Files** widget and confirm keys are assigned to filenames that export with matching basenames (see [Filenames](https://docs.lokalise.com/en/articles/2281317-filenames)).
 - Keys must be on the **Web** platform so JSON export includes them.
+- You may omit **`poc.json`** from Lokalise if you prefer to maintain Phrase Lab strings only in Git; if you add it, translators can localize POC chrome there too.
 
 ### 4) **Download** page — this fixes where the GitHub PR writes files
 
@@ -110,8 +140,7 @@ This app expects **two JSON files per locale**: `common.json` and `marketingStud
    That matches the “directory prefix + `%LANG_ISO%`” pattern described for multi-file exports (see Example 3 in [Filenames](https://docs.lokalise.com/en/articles/2281317-filenames)).
 
 6. Use **Preview**: you should see paths like  
-   `public/locales/en/common.json`, `public/locales/en/marketingStudio.json`,  
-   `public/locales/de/common.json`, `public/locales/de/marketingStudio.json`.  
+   `public/locales/en/common.json`, `public/locales/en/admin.json`, … and the same namespaces under `public/locales/de/`.  
    If you only see `en/common.json` at the repo root, the prefix is wrong — fix step 5 before triggering GitHub.
 7. Under **App triggers**, enable **GitHub**, then **Build only** (or build + download) to open the PR.
 
@@ -153,7 +182,7 @@ To stay in lockstep with production:
 - Keep the same **relative paths** under `public/locales/{lng}/{ns}.json`.
 - Keep **namespace names** and **key paths** compatible when copying JSON from the real app into this POC (or the other way around after Lokalise export).
 
-This POC intentionally ships a **small** key set; grow it by copying namespaces from `dcx-client-app/public/locales/` as needed.
+Demo routes (**Home**, **Dashboard**, **Marketing Studio**, **Customer Care**, **Reporting**, **Admin**) use `react-router-dom` and pull copy from the namespaces above. **`marketingStudio`** and **`customerCare`** in this repo are **curated subsets** unless you replace them with full exports from Lokalise or widen the allowlists and re-run `npm run sync:locales`.
 
 ## License
 

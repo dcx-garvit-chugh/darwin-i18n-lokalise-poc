@@ -1,5 +1,6 @@
 import { StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { initI18n } from './i18n.js';
 import './index.css';
 import App from './App.jsx';
@@ -25,7 +26,9 @@ async function bootstrap() {
   createRoot(document.getElementById('root')).render(
     <StrictMode>
       <Suspense fallback={loadingFallback}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </Suspense>
     </StrictMode>,
   );
