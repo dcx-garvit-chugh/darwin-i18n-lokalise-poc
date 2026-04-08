@@ -4,15 +4,15 @@ import './i18n';
 import './index.css';
 import App from './App.jsx';
 
-function AppLoading() {
-  return (
-    <div style={{ padding: '2rem', fontFamily: 'system-ui' }}>Loading translations…</div>
-  );
-}
-
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Suspense fallback={<AppLoading />}>
+    <Suspense
+      fallback={
+        <div style={{ padding: '2rem', fontFamily: 'system-ui' }}>
+          Loading translations…
+        </div>
+      }
+    >
       <App />
     </Suspense>
   </StrictMode>,
