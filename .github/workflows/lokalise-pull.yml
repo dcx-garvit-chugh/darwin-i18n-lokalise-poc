@@ -1,0 +1,52 @@
+# Downloads target languages from Lokalise and opens a PR (e.g. public/locales/de/*.json).
+# Run after: Push workflow + Lokalise automations/workflows finished (or on a schedule).
+# skip_include_tags: true matches this POC when keys are not tagged by branch name.
+# Docs: https://github.com/lokalise/lokalise-pull-action
+name: Pull translations from Lokalise
+
+on:
+  workflow_dispatch:
+  # Uncomment to run weekly (UTC). Watch processed-word quota on Lokalise trial.
+  # schedule:
+  #   - cron: '0 14 * * 1'
+
+concurrency:
+  group: lokalise-pull-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Pull from Lokalise
+        uses: lokalise/lokalise-pull-action@v5.2.0
+        with:
+          api_token: ${{ secrets.LOKALISE_API_TOKEN }}
+          project_id: ${{ vars.LOKALISE_PROJECT_ID }}
+          base_lang: en
+          translations_path: public/locales
+          file_format: json
+          file_ext: json
+          skip_include_tags: true
+          additional_params: >
+            {
+              "indentation": "2sp",
+              "export_empty_as": "skip",
+              "export_sort": "a_z",
+              "replace_breaks": false
+            }
+          pr_title: 'Lokalise: translation update'
+          pr_body: |
+            Automated pull from Lokalise (`lokalise-pull-action`).
+
+            - Review JSON under `public/locales/` before merge.
+            - If your project uses **branch tags** for hub workflows, set `skip_include_tags: false` and align tags in Lokalise.

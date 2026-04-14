@@ -67,5 +67,10 @@
             "message": "The page you are looking for is temporarily unavailable."
         },
         "sessionExpired": "Session Expired - please re-login"
+    },
+    "pipelineTest": {
+        "greeting": "Hello from the GitHub Actions pipeline!",
+        "description": "This key was added to test the Push → Lokalise Automation → Pull PR flow.",
+        "cta": "Verify in Lokalise"
     }
 }

@@ -97,6 +97,40 @@ Allowlists for large namespaces:
 
 ---
 
+## GitHub Actions (official Lokalise push / pull)
+
+This repo includes workflows using Lokalise’s marketplace actions ([docs](https://developers.lokalise.com/docs/github-actions)) so you can test the same **Push → Lokalise (Automations / Workflows) → Pull PR** loop Eric walked through—without relying on the Lokalise **GitHub app** alone.
+
+| Workflow | File | What it does |
+|----------|------|----------------|
+| **Push English locales to Lokalise** | `.github/workflows/lokalise-push.yml` | Uploads changed files under `public/locales/en/**/*.json` to your Lokalise project (`lokalise-push-action@v5.2.0`). |
+| **Pull translations from Lokalise** | `.github/workflows/lokalise-pull.yml` | Downloads target languages and opens a PR updating `public/locales/` (`lokalise-pull-action@v5.2.0`). |
+
+### One-time GitHub setup
+
+1. **Repository secret:** `LOKALISE_API_TOKEN` — [API token](https://docs.lokalise.com/en/articles/1929556-api-and-sdk-tokens) with upload + download permissions for the project.
+2. **Repository variable:** `LOKALISE_PROJECT_ID` — Project ID from Lokalise **Project settings → General**.
+3. **Actions settings:** **Settings → Actions → General → Workflow permissions** → *Read and write*, and allow **Actions to create pull requests** (required for the pull action to open PRs).
+
+### Lokalise project alignment
+
+- **Filenames** in Lokalise should match this tree, e.g. `public/locales/%LANG_ISO%/common.json` (see [Filenames](https://docs.lokalise.com/en/articles/2281317-filenames)) so push/pull compare the same paths.
+- **Pull** uses `skip_include_tags: true` so downloads are **not** limited to keys tagged with the current branch name (recommended for this POC). If you switch to a **hub branch + tag** workflow, set `skip_include_tags: false` and tag keys in Lokalise accordingly.
+
+### Automations & workflows (in the Lokalise UI)
+
+GitHub Actions only move files; **Automations** (instant MT/AI on English changes) and **Workflows** (scheduled TM → Pro AI → human review) are configured **inside Lokalise** (Eric’s demo: **More → Automations**, **Workflows**). After a successful **Push** from GitHub, wait for those jobs to finish (or for the upload to complete if Automations block completion), then run **Pull translations from Lokalise** manually or on a schedule (uncomment `schedule` in `lokalise-pull.yml` if desired).
+
+### Quota / trial
+
+Pushes and file processing consume **processed words** on your Lokalise plan. For tests, change **one small** `public/locales/en/*.json` file or use a **dummy file with few keys**; avoid chaining unnecessary full-repo uploads.
+
+### Chaining Push → Pull automatically
+
+You can add a separate workflow with `on.workflow_run` targeting `Push English locales to Lokalise` if you want Pull to start right after Push; if **Automations** need time, add a **wait** step or run Pull on a **cron** instead. See [workflow_run](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_run).
+
+---
+
 ## Lokalise dashboard: fully automated PRs into `public/locales/`
 
 There is no “magic path” in the repo: GitHub PRs use whatever you configure on Lokalise’s **[Download](https://docs.lokalise.com/en/articles/3150682-downloading-translation-files)** page (file structure + directory prefix) and the **[GitHub](https://docs.lokalise.com/en/articles/1684090-github)** app trigger. Follow this once per project (save settings; Lokalise remembers them for the next export).
