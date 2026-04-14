@@ -6,6 +6,7 @@ import MarketingDemoPage from './pages/MarketingDemoPage.jsx';
 import CustomerCareDemoPage from './pages/CustomerCareDemoPage.jsx';
 import ReportingDemoPage from './pages/ReportingDemoPage.jsx';
 import AdminDemoPage from './pages/AdminDemoPage.jsx';
+import SettingsDemoPage from './pages/SettingsDemoPage.jsx';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="customer-care" element={<CustomerCareDemoPage />} />
         <Route path="reporting" element={<ReportingDemoPage />} />
         <Route path="admin" element={<AdminDemoPage />} />
+        <Route path="settings" element={<SettingsDemoPage />} />
       </Route>
     </Routes>
   );

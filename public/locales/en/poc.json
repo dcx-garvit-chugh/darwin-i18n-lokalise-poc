@@ -4,7 +4,8 @@
         "marketing": "Marketing Studio",
         "customerCare": "Customer Care",
         "reporting": "Reporting",
-        "admin": "Admin"
+        "admin": "Admin",
+        "settings": "Settings"
     },
     "badge": "POC · i18next + Lokalise playground",
     "heroKicker": "Ship copy like you ship features.",
@@ -40,5 +41,35 @@
     "pageAdminTitle": "Admin",
     "pageAdminLede": "Admin form labels pulled from Darwin strings.",
     "demoListCaption": "Representative keys",
-    "repoNavHint": "GitHub"
+    "repoNavHint": "GitHub",
+    "pageSettingsTitle": "Settings",
+    "pageSettingsLede": "Manage your account preferences, notification channels, and display options.",
+    "settings": {
+        "sectionAccount": "Account Information",
+        "labelDisplayName": "Display Name",
+        "labelEmail": "Email Address",
+        "labelTimezone": "Timezone",
+        "labelLanguagePreference": "Language Preference",
+        "placeholderDisplayName": "Enter your display name",
+        "placeholderEmail": "you@darwincx.com",
+        "sectionNotifications": "Notification Preferences",
+        "labelEmailNotifications": "Email Notifications",
+        "labelSlackAlerts": "Slack Alerts",
+        "labelWeeklyDigest": "Weekly Summary Digest",
+        "labelCriticalAlertsOnly": "Critical Alerts Only",
+        "hintNotifications": "Choose how and when you want to be notified about campaign updates and system events.",
+        "sectionDisplay": "Display Options",
+        "labelDarkMode": "Dark Mode",
+        "labelCompactView": "Compact View",
+        "labelShowKeyHints": "Show Translation Key Hints",
+        "labelItemsPerPage": "Items Per Page",
+        "sectionDanger": "Danger Zone",
+        "labelDeleteAccount": "Delete Account",
+        "hintDeleteAccount": "Once you delete your account, there is no going back. Please be certain.",
+        "btnSaveChanges": "Save Changes",
+        "btnResetDefaults": "Reset to Defaults",
+        "btnDeleteAccount": "Permanently Delete Account",
+        "toastSaved": "Your settings have been saved successfully.",
+        "toastReset": "Settings have been reset to their default values."
+    }
 }
