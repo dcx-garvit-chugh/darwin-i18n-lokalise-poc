@@ -71,6 +71,7 @@
     "pipelineTest": {
         "greeting": "Hello from the GitHub Actions pipeline!",
         "description": "This key was added to test the Push → Lokalise Automation → Pull PR flow.",
-        "cta": "Verify in Lokalise"
+        "cta": "Verify in Lokalise",
+        "autoLoop": "This string was added to test the fully automated Push → Translate → Pull PR chain."
     }
 }
