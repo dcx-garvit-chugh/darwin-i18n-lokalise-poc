@@ -6,7 +6,13 @@ name: Pull translations from Lokalise
 
 on:
   workflow_dispatch:
-  # Uncomment to run weekly (UTC). Watch processed-word quota on Lokalise trial.
+  # Auto-pull after Push completes (Lokalise Automations finish before push returns)
+  workflow_run:
+    workflows:
+      - 'Push English locales to Lokalise'
+    types:
+      - completed
+  # Uncomment for a weekly schedule instead of (or in addition to) workflow_run.
   # schedule:
   #   - cron: '0 14 * * 1'
 
@@ -20,6 +26,8 @@ permissions:
 
 jobs:
   pull:
+    # Only run if Push succeeded (skip on failure / manual dispatch always runs)
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
