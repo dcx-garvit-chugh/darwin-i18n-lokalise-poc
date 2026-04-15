@@ -710,3 +710,117 @@
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+.billing-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.plan-details {
+  margin: 0;
+}
+
+.plan-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.plan-row:last-child { border-bottom: none; }
+.plan-row dt { color: var(--muted); margin: 0; }
+.plan-row dd { margin: 0; font-weight: 600; color: var(--text); }
+
+.status-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+}
+
+.status-badge--ok { color: var(--teal); background: rgba(45, 212, 184, 0.12); }
+.status-badge--danger { color: var(--accent); background: var(--accent-soft); }
+.status-badge--warn { color: #f5a623; background: rgba(245, 166, 35, 0.12); }
+
+.card-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.card-list__item:last-child { border-bottom: none; }
+
+.card-list__meta {
+  display: inline-block;
+  margin-left: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.btn--sm {
+  font-size: 0.78rem;
+  padding: 0.35rem 0.7rem;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 0.5rem;
+}
+
+.invoice-table th {
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.invoice-table td {
+  padding: 0.6rem 0.5rem 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.invoice-table tr:last-child td { border-bottom: none; }
+
+.usage-tile {
+  text-align: center;
+  padding: 1rem;
+}
+
+.alert {
+  padding: 0.85rem 1.15rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+
+.alert--danger {
+  color: #ffd6cc;
+  background: var(--accent-soft);
+  border: 1px solid rgba(255, 92, 61, 0.3);
+}
