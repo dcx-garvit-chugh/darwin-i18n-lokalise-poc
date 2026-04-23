@@ -1,0 +1,114 @@
+term,description,caseSensitive,translatable,forbidden,translation[de],notes
+Darwin CX,Product name. Never translate.,true,false,false,Darwin CX,Product/brand
+Darwin,Company/product name. Never translate.,true,false,false,Darwin,Brand
+DCX,Short for Darwin Customer Experience. Do not translate.,true,false,false,DCX,Abbreviation
+Darwin Customer Experience,Full product name. Do not translate.,true,false,false,Darwin Customer Experience,Brand
+Courage CX,Brand name used in sample data. Do not translate.,true,false,false,Courage CX,Brand
+FlyPay,Payment product name. Do not translate.,true,false,false,FlyPay,Product
+Zoomer,Internal system / tool name.,true,false,false,Zoomer,Product
+BOGO,Buy One Get One. Industry acronym — keep as is.,true,false,false,BOGO,Acronym
+Customer Care,Module name. Translate consistently as "Kundenbetreuung".,false,true,false,Kundenbetreuung,Module
+Marketing Studio,Module name. Translate as "Marketing Studio" (keep English) or "Marketing-Studio".,false,true,false,Marketing Studio,Module
+Automation Studio,Module name. Keep as "Automation Studio".,false,false,false,Automation Studio,Module
+Reporting,Module name.,false,true,false,Berichterstattung,Module
+Admin,Module name.,false,true,false,Verwaltung,Module
+Dashboard,Module name. Keep English.,false,false,false,Dashboard,Module
+Issue,"Magazine/publication edition. NEVER translate as ""Problem"" or ""Thema"".",false,true,false,Ausgabe,Publishing industry
+Single Issue,A single magazine edition.,false,true,false,Einzelausgabe,Publishing
+Back Issue,A previous/older magazine edition.,false,true,false,Ältere Ausgabe,Publishing
+Activation Issue,The edition on which a subscription is activated. Not a problem.,false,true,false,Aktivierungsausgabe,Publishing
+Expiration Issue,The edition on which a subscription expires.,false,true,false,Ablaufausgabe,Publishing
+Subscription,Customer subscription. Use "Abonnement" consistently.,false,true,false,Abonnement,Core term
+Subscriber,Customer who has a subscription.,false,true,false,Abonnent,Core term
+Renewal,"Subscription renewal. Use ""Verlängerung"" (not ""Erneuerung"").",false,true,false,Verlängerung,Core term
+Auto Renewal,Automatic subscription renewal.,false,true,false,Automatische Verlängerung,Core term
+Auto-Renew,Shortened form of Auto Renewal.,false,true,false,Automatisch Verlängern,Core term
+Autorenew,Compound form (no space/hyphen).,false,true,false,Autorenew,Internal flag
+Renewal Period,The window during which a subscription renews. Not "Renewal Prime Tier".,false,true,false,Verlängerungszeitraum,Core term
+Retention,"Customer retention (marketing). NEVER translate as ""Aufbewahrung"" or ""Zurückbehaltung"".",false,true,false,Kundenbindung,Marketing term
+Churn,Customer churn / attrition.,false,true,false,Abwanderung,Marketing term
+Cohort,Customer cohort (analytics group).,false,true,false,Kohorte,Analytics
+Cohort Builder,Feature name for building cohorts.,false,true,false,Kohorten-Builder,Feature name
+Lifetime Value,LTV of a subscriber.,false,true,false,Kundenwert,Analytics
+Campaign,Marketing campaign.,false,true,false,Kampagne,Marketing
+Marketing Campaign,Campaign run by marketing team.,false,true,false,Marketingkampagne,Marketing
+Promotional Campaign,A promo/offer campaign.,false,true,false,Werbekampagne,Marketing
+Offer,Product offer (what a customer can buy).,false,true,false,Angebot,Commerce
+Product Offer,Commerce offer tied to a product.,false,true,false,Produktangebot,Commerce
+Gift Offer,Offer intended for gifting.,false,true,false,Geschenkangebot,Commerce
+International Offer,Offer for international customers.,false,true,false,Internationales Angebot,Commerce
+Bundle,"Product bundle. Keep as ""Bundle"" (do not translate as ""Paket"").",false,false,false,Bundle,Commerce
+Auto-Renew Bundle,Bundle with auto-renewal.,false,true,false,Auto-Renew Bundle,Commerce
+Donor Gift Bundle,Bundle given to donors.,false,true,false,Spender-Geschenk-Bundle,Commerce
+Paywall,Web paywall. Keep English.,true,false,false,Paywall,Web
+Gift,A subscription given to another person.,false,true,false,Geschenk,Core term
+Gift Card,A prepaid card.,false,true,false,Geschenkgutschein,Commerce
+Donor,Person who buys a gift subscription for someone else.,false,true,false,Spender,Core term
+Recipient,Person who receives a gift.,false,true,false,Empfänger,Core term
+Publisher,The publishing house / company publishing a magazine.,false,true,false,Verlag,Publishing industry
+Publication,A specific publication title (magazine / newspaper).,false,true,false,Publikation,Publishing industry
+Magazine,A periodical magazine.,false,true,false,Magazin,Publishing
+Newspaper,A newspaper.,false,true,false,Zeitung,Publishing
+Circulation,Total distributed copies.,false,true,false,Auflage,Publishing
+Circulation Audit,Audit of circulation.,false,true,false,Auflagenprüfung,Publishing
+Fulfillment,"Order fulfillment (magazine/package delivery). Keep ""Fulfillment"" if brand preference, otherwise ""Auftragserfüllung"".",false,true,false,Auftragserfüllung,Operations
+Fulfilment,British spelling; same meaning.,false,true,false,Auftragserfüllung,Operations
+Delivery,Delivery of product to customer.,false,true,false,Zustellung,Operations
+Entitlement,Customer access entitlement to a product.,false,true,false,Berechtigung,Access control
+Tier,"Membership tier. Translate as ""Stufe"".",false,true,false,Stufe,Commerce
+Membership Tier,A specific tier of membership.,false,true,false,Mitgliedschaftsstufe,Commerce
+Premium,"Premium tier. Keep as ""Premium"" (not ""Prämie"").",false,false,false,Premium,Commerce
+Standard,Standard tier.,false,true,false,Standard,Commerce
+Enterprise,Enterprise plan/tier.,false,false,false,Enterprise,Commerce
+Plan,Subscription plan.,false,true,false,Plan,Commerce
+Billing,Invoicing/billing domain.,false,true,false,Abrechnung,Finance
+Billing Cycle,Subscription billing period.,false,true,false,Abrechnungszyklus,Finance
+Invoice,Financial invoice.,false,true,false,Rechnung,Finance
+Refund,Returned money.,false,true,false,Rückerstattung,Finance
+Credit,"Financial credit. Not ""Gutschein"".",false,true,false,Gutschrift,Finance
+Credit Card,Payment card.,false,true,false,Kreditkarte,Payment
+Debit Card,Bank card.,false,true,false,Debitkarte,Payment
+PayPal,Payment product. Do not translate.,true,false,false,PayPal,Payment
+Stripe,Payment processor. Do not translate.,true,false,false,Stripe,Payment
+CyberSource,Payment processor. Do not translate.,true,false,false,CyberSource,Payment
+Braintree,Payment processor. Do not translate.,true,false,false,Braintree,Payment
+SCA,Strong Customer Authentication (regulatory acronym).,true,false,false,SCA,Regulatory
+VAT,Value Added Tax (EU).,true,false,false,MwSt.,Tax
+GST,Goods & Services Tax (Canada/AU/IN).,true,false,false,GST,Tax
+Tax,General tax.,false,true,false,Steuer,Tax
+Paid to Publisher,"Money routed from customer to publisher. Use ""Zahlungen an den Verlag"".",false,true,false,Zahlungen an den Verlag,Finance
+Accounts Receivable,Amounts owed to the company.,false,true,false,Debitorenbuchhaltung,Finance
+Active,Subscription/account state.,false,true,false,Aktiv,Status
+Inactive,Subscription/account state.,false,true,false,Inaktiv,Status
+Expired,Subscription ended.,false,true,false,Abgelaufen,Status
+Cancelled,Cancelled state.,false,true,false,Storniert,Status
+Pending,Pending state.,false,true,false,Ausstehend,Status
+Paid,Invoice state.,false,true,false,Bezahlt,Status
+Unpaid,Invoice not yet paid.,false,true,false,Unbezahlt,Status
+Overdue,Past due date.,false,true,false,Überfällig,Status
+Lapsed,Subscription that has expired without renewal.,false,true,false,Abgelaufen,Status
+Trial,Free trial period.,false,true,false,Testphase,Commerce
+Complimentary,Free / comp copy.,false,true,false,Gratisexemplar,Commerce
+Comp Rep,Complimentary subscription for a company rep. Internal term.,false,false,false,Comp Rep,Internal
+Promo Code,Promotional code.,false,true,false,Aktionscode,Commerce
+Offer Code,Offer code.,false,true,false,Angebotscode,Commerce
+Discount,Price reduction.,false,true,false,Rabatt,Commerce
+Channel,Sales/marketing channel.,false,true,false,Kanal,Marketing
+Effort,Marketing effort (channel + timing combo).,false,true,false,Aufwand,Marketing
+Journey,Customer/renewal journey.,false,true,false,Journey,Marketing
+Renewal Journey,Full renewal journey for a subscription.,false,true,false,Verlängerungsjourney,Marketing
+Cadence,Frequency/rhythm of marketing touches.,false,true,false,Kadenz,Marketing
+Hard Bounce,Permanently failed email delivery.,false,true,false,Hard Bounce,Email
+Soft Bounce,Temporarily failed email delivery.,false,true,false,Soft Bounce,Email
+Grace Period,Period after expiry before cancellation.,false,true,false,Kulanzzeitraum,Commerce
+Digital,Digital product / digital channel.,false,true,false,Digital,Product
+Print,Printed product.,false,true,false,Print,Product
+Print and Digital,Combined offering.,false,true,false,Print und Digital,Product
+Shop App,Shop-side storefront app. Keep English.,true,false,false,Shop App,Product
+Gift Shop,Gift storefront.,false,true,false,Geschenkeshop,Product
+Donor Gift,Gift given by a donor.,false,true,false,Spendergeschenk,Commerce
+Audit,"Act of auditing. In ""Circulation Audit"" → ""Auflagenprüfung""; elsewhere ""Audit"".",false,true,false,Audit,Operations
+Audit Log,Record of changes.,false,true,false,Audit-Log,Operations
+Segmentation,Audience segmentation.,false,true,false,Segmentierung,Marketing
+Segment,An audience segment.,false,true,false,Segment,Marketing
+Cohort,Analytics cohort.,false,true,false,Kohorte,Analytics
