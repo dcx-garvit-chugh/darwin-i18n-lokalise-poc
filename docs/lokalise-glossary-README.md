@@ -32,22 +32,29 @@ Lokalise does not let you map columns during upload — the file must already ma
 
 ## Lokalise CSV format requirements
 
-Per [Lokalise's glossary docs](https://docs.lokalise.com/en/articles/1400629-glossary):
+Reverse-engineered from a CSV exported from our actual Lokalise project (see `glossary_sample.csv`) plus [Lokalise's glossary docs](https://docs.lokalise.com/en/articles/1400629-glossary):
 
 - **Separator**: semicolons (`;`) — **not** commas
 - **Encoding**: UTF-8
-- **Header row**: required
-- **Column order (exact)**:
-  1. `Term`
-  2. `Description`
-  3. `Casesensitive` — `yes` or `no`
-  4. `Translatable` — `yes` or `no`
-  5. `Forbidden` — `yes` or `no`
-  6. `Tags` — comma-separated, or empty
-  7. Language ISO code column, e.g. `de` (must match the language code in the Lokalise project)
-  8. Language description column, e.g. `de_description` (optional, can be empty)
+- **Header row**: required, **all lowercase**
+- **Exact header**:
+  ```
+  term;description;casesensitive;translatable;forbidden;tags;en;en_description;de;de_description;hi;hi_description
+  ```
+- **Column order and meaning**:
+  1. `term` — the source term (English is our base language)
+  2. `description` — general description, quoted with `"..."`
+  3. `casesensitive` — `yes` or `no`
+  4. `translatable` — `yes` or `no`
+  5. `forbidden` — `yes` or `no`
+  6. `tags` — comma-separated, or empty
+  7. `en` / `en_description` — leave empty (English IS the source, already in `term`)
+  8. `de` / `de_description` — German translation (empty for non-translatable terms)
+  9. `hi` / `hi_description` — Hindi translation, empty (not a target yet)
 
-No extra columns are allowed. If you see weird upload errors, it's almost always the separator (commas instead of semicolons).
+**Critical**: The Lokalise project must have `en`, `de`, and `hi` as configured languages for the column names to be recognized. If languages are added/removed from the project, update this CSV accordingly.
+
+**Do not leave a language column blank if that language already has translations in the project** — blank values overwrite (delete) existing entries per Lokalise docs.
 
 ### Validating before upload
 
