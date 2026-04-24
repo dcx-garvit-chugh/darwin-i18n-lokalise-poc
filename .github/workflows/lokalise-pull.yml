@@ -1,20 +1,21 @@
-# Downloads target languages from Lokalise and opens a PR (e.g. public/locales/de/*.json).
-# Run after: Push workflow + Lokalise automations/workflows finished (or on a schedule).
-# skip_include_tags: true matches this POC when keys are not tagged by branch name.
-# Docs: https://github.com/lokalise/lokalise-pull-action
-name: Pull translations from Lokalise
+# Pulls reviewed translations from Lokalise and opens a PR (e.g. public/locales/de/*.json).
+#
+# Design (post human-review workflow):
+# - Runs on a weekly schedule (Mon 14:00 UTC). Picks up everything reviewers approved that week.
+# - DECOUPLED from push. Pushes no longer trigger an immediate pull — we wait for humans.
+# - filter_data: ["reviewed_only"] ensures only approved translations are exported.
+# - Manual dispatch (workflow_dispatch) available for ad-hoc pulls and demos.
+#
+# Docs:
+# - https://github.com/lokalise/lokalise-pull-action
+# - https://developers.lokalise.com/reference/download-files (filter_data values)
+name: Pull reviewed translations from Lokalise
 
 on:
   workflow_dispatch:
-  # Auto-pull after Push completes (Lokalise Automations finish before push returns)
-  workflow_run:
-    workflows:
-      - 'Push English locales to Lokalise'
-    types:
-      - completed
-  # Uncomment for a weekly schedule instead of (or in addition to) workflow_run.
-  # schedule:
-  #   - cron: '0 14 * * 1'
+  schedule:
+    # Weekly: Monday 14:00 UTC (09:00 Toronto / 15:00 Madrid). Adjust as needed.
+    - cron: '0 14 * * 1'
 
 concurrency:
   group: lokalise-pull-${{ github.ref }}
@@ -26,8 +27,6 @@ permissions:
 
 jobs:
   pull:
-    # Only run if Push succeeded (skip on failure / manual dispatch always runs)
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,7 +34,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Pull from Lokalise
+      - name: Pull reviewed translations from Lokalise
         uses: lokalise/lokalise-pull-action@v5.2.0
         with:
           api_token: ${{ secrets.LOKALISE_API_TOKEN }}
@@ -45,16 +44,23 @@ jobs:
           file_format: json
           file_ext: json
           skip_include_tags: true
+          # filter_data: ["reviewed_only"] means only translations that have
+          # passed the Lokalise review stage are exported. Unreviewed MT stays
+          # in Lokalise until a human approves it.
           additional_params: >
             {
               "indentation": "2sp",
               "export_empty_as": "skip",
               "export_sort": "a_z",
-              "replace_breaks": false
+              "replace_breaks": false,
+              "filter_data": ["reviewed_only"]
             }
-          pr_title: 'Lokalise: translation update'
+          pr_title: 'Lokalise: reviewed translations update'
           pr_body: |
-            Automated pull from Lokalise (`lokalise-pull-action`).
+            Automated weekly pull of **reviewed** translations from Lokalise (`lokalise-pull-action`).
+
+            Only translations that passed the human-review workflow are included.
+            Unreviewed machine translations remain in Lokalise until a reviewer approves them.
 
             - Review JSON under `public/locales/` before merge.
-            - If your project uses **branch tags** for hub workflows, set `skip_include_tags: false` and align tags in Lokalise.
+            - For manual/ad-hoc pulls, re-run this workflow via **Actions → Run workflow**.
