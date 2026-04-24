@@ -1,6 +1,8 @@
 # Lokalise Glossary — Darwin CX
 
-Draft glossary for the Darwin client app, derived from real English strings in `dcx-client-app/public/locales/en/*.json` and current German translation quality issues.
+Glossary for the Darwin client app, derived from real English strings in `dcx-client-app/public/locales/en/*.json` and current German translation quality issues.
+
+File to import: `lokalise-glossary.csv`
 
 ## Why we need this
 
@@ -18,50 +20,87 @@ Scanning the current EN ↔ DE translations in the client app surfaced several *
 | Bundle | Mixed: "Bundle" vs "Paket" | Inconsistent | → **Bundle** (do not translate) |
 | Gift *(subscription gift)* | Mixed: "Geschenk" vs "Schenkung" | Gift vs donation — different concepts | → **Geschenk** |
 
-## How to use this file
+## How to import into Lokalise
 
-### Option A — Import CSV into Lokalise (recommended)
 1. Open the Darwin CX project in Lokalise
-2. Go to **Project Settings → Glossary** (or click the Glossary icon in the sidebar)
-3. Click **Import → Upload CSV**
-4. Map the columns (term, description, caseSensitive, translatable, forbidden, translation[de])
-5. Save & apply
+2. Go to the **Glossary** page in the left menu
+3. Click **More → Upload CSV**
+4. Select `lokalise-glossary.csv`
+5. Save
 
-### Option B — Manual entry
-Open the CSV in a spreadsheet, review each row with Mark / Adam, tweak translations, and enter manually into Lokalise.
+Lokalise does not let you map columns during upload — the file must already match their exact format (see below).
 
-## CSV columns explained
+## Lokalise CSV format requirements
 
-| Column | Purpose |
-|---|---|
-| `term` | The source (English) term — case matters if `caseSensitive: true` |
-| `description` | Context shown to AI + human translators |
-| `caseSensitive` | `true` for product names (Darwin, FlyPay) |
-| `translatable` | `false` = "do not translate" (brand names, product names, known English-only words) |
-| `forbidden` | Reserve for later — lets you mark words that should **never** appear in a translation |
-| `translation[de]` | Approved German translation |
-| `notes` | Internal notes (domain, why this term matters) |
+Per [Lokalise's glossary docs](https://docs.lokalise.com/en/articles/1400629-glossary):
+
+- **Separator**: semicolons (`;`) — **not** commas
+- **Encoding**: UTF-8
+- **Header row**: required
+- **Column order (exact)**:
+  1. `Term`
+  2. `Description`
+  3. `Casesensitive` — `yes` or `no`
+  4. `Translatable` — `yes` or `no`
+  5. `Forbidden` — `yes` or `no`
+  6. `Tags` — comma-separated, or empty
+  7. Language ISO code column, e.g. `de` (must match the language code in the Lokalise project)
+  8. Language description column, e.g. `de_description` (optional, can be empty)
+
+No extra columns are allowed. If you see weird upload errors, it's almost always the separator (commas instead of semicolons).
+
+### Validating before upload
+
+Lokalise provides an open-source tool called **Lokalise Glossary Guard** you can run locally to catch problems before uploading:
+
+```bash
+lokalise-glossary-guard validate -f docs/lokalise-glossary.csv -l en -l de
+```
+
+## Important caveats (read these before demoing)
+
+### 1. Automations do NOT use the glossary
+
+Lokalise docs are explicit:
+> Machine translation engines do not take the glossary into account. However, AI translations will use your glossary entries when applicable.
+
+This means:
+- **Automations** (Google / DeepL) — instant fill at push time — **ignore the glossary**
+- **Workflows using ProAI** — **do** use the glossary
+- **Human reviewers in Workflows** — see glossary matches in the editor as suggestions
+
+This actually reinforces Eric's recommendation: **Automations = instant dev visibility, Workflow = quality pass** — the quality pass is exactly where the glossary kicks in.
+
+### 2. Glossary is not applied retroactively
+
+> The glossary is meant for reference, and there's no option to automatically apply it to translations.
+
+For already-translated keys, you have two options:
+- **Find & Replace** in the Lokalise editor to fix existing mistranslations in bulk
+- **Re-translate** specific keys by reopening the Workflow — ProAI will use the glossary on that pass
+
+### 3. Shared glossary
+
+The glossary lives on a single project by default. If Darwin CX ends up with multiple Lokalise projects (e.g., separate Shop App), use **Project Settings → Glossary options → The glossary is shared** to reuse it across projects.
 
 ## Review checklist before import
 
-- [ ] Walk through with **Mark** — confirm brand/product names
-- [ ] Walk through with **Adam** — validate his specific concerns (he originally flagged "issue" and similar)
-- [ ] Confirm German translations with a native speaker / reviewer
-- [ ] Decide: is "Bundle" kept in English, or translated as "Paket"? (draft keeps English)
-- [ ] Decide: is "Fulfillment" kept in English, or translated as "Auftragserfüllung"? (draft uses Auftragserfüllung)
-- [ ] Anything missing from current Localize.js glossary? Export from there and cross-check
-- [ ] Add any team-specific jargon (e.g., CPO, SSG, DPF, DCA) — currently not included
+- [x] Confirmed with Mark — "Bundle", "Marketing Studio", "Automation Studio" stay in English
+- [x] Confirmed with Mark — "Fulfillment" translates to "Auftragserfüllung"
+- [x] Confirmed — Localize.js has no exportable glossary to merge in
+- [ ] Walk through with **Adam** to validate his specific concerns (e.g., "issue", industry-specific terms)
+- [ ] Confirm final German translations with a native speaker / reviewer
+- [ ] Add more module/team jargon if anything user-facing surfaces later
 
 ## What happens after import
 
-Once the glossary is live in Lokalise:
+1. Next **Automation** runs → translations still instant via Google/DeepL (no glossary influence)
+2. Next **Workflow** run with ProAI → glossary matches applied; reviewer sees them inline
+3. Existing mistranslations ("Problem" instead of "Ausgabe", etc.) → fix via **Find & Replace** or re-trigger ProAI on those keys
 
-1. **Automations** (instant Google/DeepL translations) — will reference the glossary
-2. **Workflows** (ProAI + human review) — will reference the glossary and show matches in the editor
-3. **Existing translations** — you can run **"Apply glossary"** as a bulk action in Lokalise to fix already-translated keys where they mistranslate a glossary term
+## Next steps after glossary is live
 
-## Next steps after this file is imported
-
-1. Set up the **human review Workflow** (see main README and Eric's recommendations in `Lokalise + Darwin CX | Technical Discussion` transcript)
-2. Run a test push so the Automation + Workflow reference the glossary
-3. Verify the fixes for "issue", "retention", "renewal" etc. land correctly
+1. Move to **Topic 2: Human Review Workflow** (Eric's recommendations from the technical discussion)
+2. Configure the Workflow in Lokalise (ProAI + human reviewer, weekly)
+3. Update `.github/workflows/lokalise-pull.yml` to only pull **verified** translations on a cron, decoupled from push
+4. End-to-end test: push a string → instant Google MT visible → trigger Workflow → reviewer approves → weekly pull creates PR with approved content
