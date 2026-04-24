@@ -46,6 +46,9 @@ export default function AppShell() {
           <NavLink to="/billing" className={navClass}>
             {t('nav.billing')}
           </NavLink>
+          <NavLink to="/integrations" className={navClass}>
+            {t('nav.integrations')}
+          </NavLink>
         </nav>
         <div className="top-nav__meta">
           <span className="top-nav__ns" title="i18next namespaces">
