@@ -9,6 +9,7 @@ import AdminDemoPage from './pages/AdminDemoPage.jsx';
 import SettingsDemoPage from './pages/SettingsDemoPage.jsx';
 import BillingDemoPage from './pages/BillingDemoPage.jsx';
 import IntegrationsDemoPage from './pages/IntegrationsDemoPage.jsx';
+import AudienceDemoPage from './pages/AudienceDemoPage.jsx';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="settings" element={<SettingsDemoPage />} />
         <Route path="billing" element={<BillingDemoPage />} />
         <Route path="integrations" element={<IntegrationsDemoPage />} />
+        <Route path="audience" element={<AudienceDemoPage />} />
       </Route>
     </Routes>
   );

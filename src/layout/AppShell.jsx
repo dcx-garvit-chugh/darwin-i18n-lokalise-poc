@@ -49,6 +49,9 @@ export default function AppShell() {
           <NavLink to="/integrations" className={navClass}>
             {t('nav.integrations')}
           </NavLink>
+          <NavLink to="/audience" className={navClass}>
+            {t('nav.audience')}
+          </NavLink>
         </nav>
         <div className="top-nav__meta">
           <span className="top-nav__ns" title="i18next namespaces">
